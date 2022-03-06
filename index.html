@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form using JS validatin</title>
+</head>
+<body>
+	<form name="registration_form" onsubmit="check()">
+		<fieldset>
+			<h2>Registration Form</h2>
+			<label>First Name :- <input type="text" name="fname" placeholder="first name" required></label>
+			<br><br>
+			<label>Last Name :- <input type="text" name="lname" placeholder="last name" required></label>
+			<br><br>
+			<label>Email :- <input type="email" name="mail" placeholder="Enter mail address" required></label>
+			<br><br>
+			<label>Mobile :- <input type="text" name="mob" placeholder="Enter Number" minlength="10" maxlength="13" pattern="[0-9]{10}" required><p>*note:- enter mobile number without code</p></label>
+			<label>Password :- <input type="password" name="pass" placeholder="password" required></label>
+			<br><br>
+			<button type="submit">Register</button>
+		</fieldset>
+	</form>
+</body>
+
+<script type="text/javascript">
+	function check() {
+
+		var fname = document.registration_form.fname.value;
+		var lname = document.registration_form.lname.value;
+		var mail = document.registration_form.mail.value;
+		var mobile = document.registration_form.mob.value;
+		var password = document.registration_form.pass.value;
+
+		var check_name = /^[A-Za-z]+$/;
+		if(!fname.match(check_name) && lname.match(check_name))
+		{
+			alert('Name should be alphabhet characters only');
+		}
+
+// 		/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
+// [a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+
+		var atposition = mail.indexOf("@");
+		var dotposition = mail.lastIndexOf(".");  
+		if(atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)
+		{
+			alert('Enter Valid Email');
+		}
+
+
+		
+
+	}
+</script>
+</html>
